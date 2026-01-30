@@ -47,6 +47,14 @@
             --danger-100: #fed7d7;
             --danger-50: #fff5f5;
             
+            /* Purple for policy */
+            --purple-700: #6b46c1;
+            --purple-600: #805ad5;
+            --purple-500: #9f7aea;
+            --purple-200: #e9d8fd;
+            --purple-100: #faf5ff;
+            --purple-50: #fdfcfe;
+            
             /* Neutral */
             --neutral-900: #1a202c;
             --neutral-800: #2d3748;
@@ -109,7 +117,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             padding: var(--space-6);
             background: var(--neutral-50);
@@ -271,18 +279,25 @@
         }
         
         .tech-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--space-4);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-5);
         }
         
         .tech-card {
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .tech-card-header {
             background: var(--neutral-100);
-            border-left: 4px solid var(--primary-500);
-            padding: var(--space-5);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-4) var(--space-5);
             display: flex;
+            align-items: flex-start;
             gap: var(--space-4);
+            border-bottom: 1px solid var(--neutral-200);
         }
         
         .tech-card .icon {
@@ -302,7 +317,7 @@
             fill: var(--primary-600);
         }
         
-        .tech-content {
+        .tech-header-content {
             flex: 1;
         }
         
@@ -310,10 +325,13 @@
             font-size: var(--font-size-base);
             color: var(--primary-900);
             margin-bottom: var(--space-2);
+        }
+        
+        .tech-meta {
             display: flex;
             flex-wrap: wrap;
-            align-items: center;
             gap: var(--space-2);
+            align-items: center;
         }
         
         .status {
@@ -325,7 +343,7 @@
             letter-spacing: 0.025em;
         }
         
-        .status-now {
+        .status-mature {
             background: var(--success-100);
             color: var(--success-700);
         }
@@ -335,20 +353,111 @@
             color: var(--accent-600);
         }
         
-        .status-early {
-            background: var(--neutral-200);
-            color: var(--neutral-700);
+        .status-mixed {
+            background: var(--primary-100);
+            color: var(--primary-700);
         }
         
-        .tech-card .use {
+        .confidence-badge {
+            font-size: var(--font-size-xs);
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            border: 1px solid;
+        }
+        
+        .confidence-very-high {
+            background: var(--success-50);
+            color: var(--success-700);
+            border-color: var(--success-200);
+        }
+        
+        .confidence-medium-high {
+            background: var(--primary-50);
+            color: var(--primary-700);
+            border-color: var(--primary-200);
+        }
+        
+        .confidence-medium {
+            background: var(--accent-50);
+            color: var(--accent-600);
+            border-color: var(--accent-200);
+        }
+        
+        .tech-card-body {
+            padding: var(--space-5);
+        }
+        
+        .tech-applications {
             font-size: var(--font-size-sm);
             color: var(--neutral-700);
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px dashed var(--neutral-200);
+        }
+        
+        .tech-applications strong {
+            color: var(--neutral-800);
+        }
+        
+        .tech-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-4);
+        }
+        
+        .tech-detail-box {
+            padding: var(--space-4);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+        }
+        
+        .tech-detail-box h5 {
+            font-size: var(--font-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
             margin-bottom: var(--space-2);
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
         }
         
-        .tech-card .implication {
+        .tech-detail-box ul {
+            padding-left: var(--space-4);
+            margin: 0;
+        }
+        
+        .tech-detail-box li {
+            margin-bottom: var(--space-2);
+            line-height: 1.5;
+        }
+        
+        .evidence-box {
+            background: var(--success-50);
+            border: 1px solid var(--success-200);
+        }
+        
+        .evidence-box h5 {
+            color: var(--success-700);
+        }
+        
+        .reality-box {
+            background: var(--danger-50);
+            border: 1px solid var(--danger-200);
+        }
+        
+        .reality-box h5 {
+            color: var(--danger-700);
+        }
+        
+        .tech-implication {
+            margin-top: var(--space-4);
+            padding: var(--space-4);
+            background: var(--primary-50);
+            border-left: 3px solid var(--primary-500);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
             font-size: var(--font-size-sm);
-            color: var(--primary-600);
+            color: var(--primary-800);
             font-style: italic;
         }
         
@@ -410,6 +519,79 @@
             font-size: var(--font-size-base);
             margin-bottom: var(--space-3);
             line-height: 1.5;
+        }
+        
+        /* ==================== */
+        /* UK POLICY SECTION    */
+        /* ==================== */
+        .policy-intro {
+            font-size: var(--font-size-sm);
+            color: var(--neutral-600);
+            margin-bottom: var(--space-5);
+        }
+        
+        .policy-grid {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+        
+        .policy-card {
+            background: var(--neutral-50);
+            border: 1px solid var(--purple-200);
+            border-left: 4px solid var(--purple-600);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: var(--space-5);
+        }
+        
+        .policy-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+        
+        .policy-number {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            background: var(--purple-600);
+            color: var(--neutral-50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: var(--font-size-sm);
+        }
+        
+        .policy-card h4 {
+            font-size: var(--font-size-base);
+            color: var(--purple-700);
+            margin: 0;
+        }
+        
+        .policy-card p {
+            font-size: var(--font-size-sm);
+            color: var(--neutral-700);
+            margin: 0 0 var(--space-3) 0;
+            line-height: 1.6;
+        }
+        
+        .policy-card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .policy-recommendation {
+            background: var(--purple-100);
+            padding: var(--space-3);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            color: var(--purple-700);
+        }
+        
+        .policy-recommendation strong {
+            color: var(--purple-700);
         }
         
         /* ==================== */
@@ -648,6 +830,91 @@
         }
         
         /* ==================== */
+        /* AUTHOR CITATION      */
+        /* ==================== */
+        .author-citation {
+            margin-top: var(--space-6);
+            padding: var(--space-5);
+            background: var(--neutral-100);
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-md);
+        }
+        
+        .citation-content {
+            margin-bottom: var(--space-4);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--neutral-300);
+        }
+        
+        .citation-text {
+            font-size: var(--font-size-sm);
+            color: var(--neutral-800);
+            margin: 0 0 var(--space-2) 0;
+        }
+        
+        .author-link {
+            font-size: var(--font-size-sm);
+            color: var(--neutral-600);
+            margin: 0;
+        }
+        
+        .author-link a {
+            color: var(--primary-600);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .author-link a:hover {
+            color: var(--primary-800);
+            text-decoration: underline;
+        }
+        
+        .disclaimer {
+            font-size: var(--font-size-xs);
+            color: var(--neutral-600);
+            line-height: 1.5;
+        }
+        
+        .disclaimer p {
+            margin: 0 0 var(--space-2) 0;
+        }
+        
+        .disclaimer p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .disclaimer a {
+            color: var(--primary-600);
+            text-decoration: none;
+        }
+        
+        .disclaimer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* ==================== */
+        /* NAVIGATION           */
+        /* ==================== */
+        .nav-hint {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-2);
+            margin: var(--space-4) 0;
+            padding: var(--space-3);
+            background: var(--neutral-100);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-xs);
+        }
+        
+        .nav-hint span {
+            padding: var(--space-1) var(--space-2);
+            background: var(--neutral-50);
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius-sm);
+            color: var(--neutral-600);
+        }
+        
+        /* ==================== */
         /* RESPONSIVE - TABLET  */
         /* ==================== */
         @media (min-width: 640px) {
@@ -663,12 +930,8 @@
                 grid-template-columns: 1fr 1fr;
             }
             
-            .tech-grid {
+            .tech-details {
                 grid-template-columns: 1fr 1fr;
-            }
-            
-            .tech-card-full {
-                grid-column: span 2;
             }
             
             .fact-grid {
@@ -685,6 +948,15 @@
             
             .scenario-grid {
                 grid-template-columns: 1fr 1fr;
+            }
+            
+            .policy-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .policy-card:last-child {
+                grid-column: span 2;
             }
         }
         
@@ -706,7 +978,7 @@
         /* ==================== */
         @media print {
             html {
-                font-size: 10pt;
+                font-size: 9pt;
             }
             
             body {
@@ -720,11 +992,19 @@
             
             @page {
                 size: A4;
-                margin: 1.5cm;
+                margin: 1.2cm;
             }
             
             .page-break {
                 page-break-before: always;
+            }
+            
+            .tech-card {
+                page-break-inside: avoid;
+            }
+            
+            .policy-card {
+                page-break-inside: avoid;
             }
             
             .provocation-box,
@@ -751,6 +1031,15 @@
         <div class="reflection-q">
             <strong>Reflection:</strong> What are the choices to make—and who gets to make them? What could be the unintended consequences of those choices?
         </div>
+    </div>
+    
+    <div class="nav-hint">
+        <span>📍 Pressure Points</span>
+        <span>🔬 Five Technologies</span>
+        <span>🇬🇧 UK Position</span>
+        <span>🏛️ Policy Landscape</span>
+        <span>⚖️ Strategic Tensions</span>
+        <span>🎯 Scenario Challenge</span>
     </div>
 
     <h2>The Pressure Points</h2>
@@ -779,61 +1068,230 @@
     </div>
 
     <h2>Five Technologies Reshaping the System</h2>
-    <p class="tech-intro">You'll experience UK innovations in these areas firsthand today.</p>
+    <p class="tech-intro">You'll experience UK innovations in these areas firsthand today. Each technology assessment includes evidence base and reality checks.</p>
 
     <div class="tech-grid">
+        <!-- AI & Predictive Systems -->
         <div class="tech-card">
-            <div class="icon">
-                <svg viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89.15-1.83.09-2.73-.18-1.62-.48-2.98-1.63-3.72-3.15l-.73.35a2.413 2.413 0 0 1-1.12.21c-.59-.05-1.12-.34-1.47-.79l-.57-.65a1.848 1.848 0 0 1 .1-2.48l.78-.78a8.45 8.45 0 0 1-.09-1.41c0-1.41.24-2.74.73-3.96-.19-.22-.31-.52-.31-.83 0-.69.56-1.25 1.25-1.25.39 0 .73.18.97.46C8.79 2.58 10.79 2 13 2c4.62 0 8.5 3.44 8.96 8.01.46.09.84.41 1.01.87.17.46.09.97-.21 1.35l-.43.57z"/></svg>
+            <div class="tech-card-header">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M21.33 12.91c.09 1.55-.62 3.04-1.89 3.95l.77 1.49c.23.45.26.98.06 1.45-.19.47-.58.84-1.06 1l-.79.25a1.687 1.687 0 0 1-1.86-.55L14.44 18c-.89.15-1.83.09-2.73-.18-1.62-.48-2.98-1.63-3.72-3.15l-.73.35a2.413 2.413 0 0 1-1.12.21c-.59-.05-1.12-.34-1.47-.79l-.57-.65a1.848 1.848 0 0 1 .1-2.48l.78-.78a8.45 8.45 0 0 1-.09-1.41c0-1.41.24-2.74.73-3.96-.19-.22-.31-.52-.31-.83 0-.69.56-1.25 1.25-1.25.39 0 .73.18.97.46C8.79 2.58 10.79 2 13 2c4.62 0 8.5 3.44 8.96 8.01.46.09.84.41 1.01.87.17.46.09.97-.21 1.35l-.43.57z"/></svg>
+                </div>
+                <div class="tech-header-content">
+                    <h4>AI & Predictive Systems</h4>
+                    <div class="tech-meta">
+                        <span class="status status-mature">Mature Tech</span>
+                        <span class="status status-mature">Mature Business</span>
+                        <span class="confidence-badge confidence-very-high">Very High Confidence</span>
+                    </div>
+                </div>
             </div>
-            <div class="tech-content">
-                <h4>AI & Predictive Systems <span class="status status-now">Deploying Now</span></h4>
-                <p class="use"><strong>How it's used:</strong> Demand forecasting, crop yield prediction, dynamic pricing, quality control, supply chain optimisation, waste reduction.</p>
-                <p class="implication">→ Could enable anticipatory food systems that respond before crises hit—or concentrate power in those who control the data.</p>
+            <div class="tech-card-body">
+                <p class="tech-applications"><strong>Applications:</strong> Demand forecasting, crop yield prediction, dynamic pricing, quality control, supply chain optimisation, waste reduction algorithms.</p>
+                
+                <div class="tech-details">
+                    <div class="tech-detail-box evidence-box">
+                        <h5>✓ Evidence Base</h5>
+                        <ul>
+                            <li>87% of enterprises use AI for demand forecasting with 35%+ accuracy improvements</li>
+                            <li>Market valued at $19.8B (2025), growing at 45.3% CAGR</li>
+                            <li>Proven ROI: Kroger (25% waste reduction), Unilever (98% on-shelf availability)</li>
+                            <li>15-30% better defect detection, 20-40% reduction in unplanned downtime</li>
+                            <li>50% of food companies planning AI investments in 2026</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-box reality-box">
+                        <h5>⚠ Reality Check</h5>
+                        <ul>
+                            <li>Adoption uneven—vendor saturation creates decision paralysis</li>
+                            <li>Poor data quality kills implementations fast; legacy ERP systems create silos</li>
+                            <li>SMEs face prohibitive setup costs and lack implementation expertise</li>
+                            <li>User adoption critical—if staff distrust AI outputs, they circumvent the system</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-implication">
+                    → Could enable anticipatory food systems that respond before crises hit—or concentrate power in those who control the data.
+                </div>
             </div>
         </div>
-        
+
+        <!-- Controlled Environment Agriculture -->
         <div class="tech-card">
-            <div class="icon">
-                <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 3.62 13.38 2.5 12 2.5S9.5 3.62 9.5 5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+            <div class="tech-card-header">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 3.62 13.38 2.5 12 2.5S9.5 3.62 9.5 5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+                </div>
+                <div class="tech-header-content">
+                    <h4>Controlled Environment Agriculture</h4>
+                    <div class="tech-meta">
+                        <span class="status status-mature">Mature Tech</span>
+                        <span class="status status-emerging">Immature Business</span>
+                        <span class="confidence-badge confidence-medium">Medium Confidence</span>
+                    </div>
+                </div>
             </div>
-            <div class="tech-content">
-                <h4>Controlled Environment Agriculture <span class="status status-emerging">Scaling</span></h4>
-                <p class="use"><strong>How it's used:</strong> Vertical farms, climate-proof growing, urban production, year-round supply, reduced water/land use.</p>
-                <p class="implication">→ Could decouple food from weather and geography—or remain too energy-intensive and capital-heavy to scale beyond niche.</p>
+            <div class="tech-card-body">
+                <p class="tech-applications"><strong>Applications:</strong> Vertical farms, climate-proof growing, urban production, year-round supply, reduced water/land use.</p>
+                
+                <div class="tech-details">
+                    <div class="tech-detail-box evidence-box">
+                        <h5>✓ Evidence Base</h5>
+                        <ul>
+                            <li>Technology delivers on technical promises: yield, water efficiency, climate resilience</li>
+                            <li>Hyper-efficient operators with patient capital and renewable energy are surviving</li>
+                            <li>Urban production model reduces last-mile logistics and food miles</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-box reality-box">
+                        <h5>⚠ Reality Check</h5>
+                        <ul>
+                            <li>Sector in "valley of disappointment" phase—$3B+ invested since 2020 with billion-dollar bankruptcies</li>
+                            <li>Economically false at current energy prices despite being technically true</li>
+                            <li>Consumer willingness to pay premium insufficient to cover operating costs</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-implication">
+                    → Could decouple food from weather and geography—or remain too energy-intensive and capital-heavy to scale beyond niche.
+                </div>
             </div>
         </div>
-        
+
+        <!-- Clean Ingredients & Precision Fermentation -->
         <div class="tech-card">
-            <div class="icon">
-                <svg viewBox="0 0 24 24"><path d="M19.8 18.4L14 10.67V6.5l1.35-1.69c.26-.33.03-.81-.39-.81H9.04c-.42 0-.65.48-.39.81L10 6.5v4.17L4.2 18.4c-.49.66-.02 1.6.8 1.6h14c.82 0 1.29-.94.8-1.6z"/></svg>
+            <div class="tech-card-header">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.8 18.4L14 10.67V6.5l1.35-1.69c.26-.33.03-.81-.39-.81H9.04c-.42 0-.65.48-.39.81L10 6.5v4.17L4.2 18.4c-.49.66-.02 1.6.8 1.6h14c.82 0 1.29-.94.8-1.6z"/></svg>
+                </div>
+                <div class="tech-header-content">
+                    <h4>Clean Ingredients & Precision Fermentation</h4>
+                    <div class="tech-meta">
+                        <span class="status status-emerging">Emerging Tech</span>
+                        <span class="status status-emerging">Immature Business</span>
+                        <span class="confidence-badge confidence-medium-high">Medium-High Confidence</span>
+                    </div>
+                </div>
             </div>
-            <div class="tech-content">
-                <h4>Clean Ingredients & Fermentation <span class="status status-emerging">Emerging</span></h4>
-                <p class="use"><strong>How it's used:</strong> Precision fermentation, cellular agriculture, novel proteins, functional ingredients, waste-stream valorisation.</p>
-                <p class="implication">→ Could slash land use and import dependency—or face consumer rejection and years of regulatory delay.</p>
+            <div class="tech-card-body">
+                <p class="tech-applications"><strong>Applications:</strong> Precision fermentation, cellular agriculture, novel proteins, functional ingredients, waste-stream valorisation.</p>
+                
+                <div class="tech-details">
+                    <div class="tech-detail-box evidence-box">
+                        <h5>✓ Evidence Base</h5>
+                        <ul>
+                            <li>European investment €470M in 2024 (23% YoY increase); precision fermentation €120M (3x growth)</li>
+                            <li>12 precision fermentation products under EFSA review (up from 3 in 2023)</li>
+                            <li>Genuine cost reductions: Meatly achieved £1/litre culture medium</li>
+                            <li>UK/EU regulatory sandboxes active (FSA £1.6M fund); UK £200M Biomanufacturing Fund</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-box reality-box">
+                        <h5>⚠ Reality Check</h5>
+                        <ul>
+                            <li>Critical infrastructure gap: demo/commercial facilities cost €15-250M, beyond VC capacity</li>
+                            <li>Cultivated meat funding collapsed 59% to €48M in 2024</li>
+                            <li>Technology works but business models unproven at commercial scale</li>
+                            <li>Years away from meaningful market penetration for human consumption</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-implication">
+                    → Could slash land use and import dependency—or face consumer rejection and years of regulatory delay.
+                </div>
             </div>
         </div>
-        
+
+        <!-- Advanced Manufacturing & Robotics -->
         <div class="tech-card">
-            <div class="icon">
-                <svg viewBox="0 0 24 24"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z"/></svg>
+            <div class="tech-card-header">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zM7.5 11.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5S9.83 13 9 13s-1.5-.67-1.5-1.5zM16 17H8v-2h8v2zm-1-4c-.83 0-1.5-.67-1.5-1.5S14.17 10 15 10s1.5.67 1.5 1.5S15.83 13 15 13z"/></svg>
+                </div>
+                <div class="tech-header-content">
+                    <h4>Advanced Manufacturing & Robotics</h4>
+                    <div class="tech-meta">
+                        <span class="status status-mixed">Mixed Maturity</span>
+                        <span class="status status-emerging">Developing Business</span>
+                        <span class="confidence-badge confidence-medium">Medium Confidence</span>
+                    </div>
+                </div>
             </div>
-            <div class="tech-content">
-                <h4>Advanced Manufacturing & Robotics <span class="status status-early">Early Stage</span></h4>
-                <p class="use"><strong>How it's used:</strong> Autonomous harvesting, precision weeding, automated processing, robotic picking, last-mile delivery.</p>
-                <p class="implication">→ Could solve chronic labour shortages—or accelerate rural job displacement without just transition planning.</p>
+            <div class="tech-card-body">
+                <p class="tech-applications"><strong>Applications:</strong> Autonomous harvesting, precision weeding, automated processing, robotic picking, last-mile delivery.</p>
+                
+                <div class="tech-details">
+                    <div class="tech-detail-box evidence-box">
+                        <h5>✓ Evidence Base</h5>
+                        <ul>
+                            <li>Market growing robustly: $14.74B (2024) → $48.06B by 2030 (23% CAGR)</li>
+                            <li>John Deere See & Spray: 59% herbicide reduction across 1M+ acres</li>
+                            <li>Precision weeding/spraying shows strong adoption—proven ROI within 1-2 seasons</li>
+                            <li>Autonomous tractors commercially available from Deere, CNH, Kubota since 2022</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-box reality-box">
+                        <h5>⚠ Reality Check</h5>
+                        <ul>
+                            <li>Harvesting is the "most technically challenging frontier" with limited commercial success</li>
+                            <li>Expert estimate: harvest robots might replace 50% of labor at best, not all</li>
+                            <li>High upfront costs (tens of thousands to $1M+), complex maintenance</li>
+                            <li>15% of 2024 companies exited by 2025—dynamic but high-failure environment</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-implication">
+                    → Could solve chronic labour shortages—or accelerate rural job displacement without just transition planning.
+                </div>
             </div>
         </div>
-        
-        <div class="tech-card tech-card-full">
-            <div class="icon">
-                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+
+        <!-- Digital Traceability & Blockchain -->
+        <div class="tech-card">
+            <div class="tech-card-header">
+                <div class="icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+                <div class="tech-header-content">
+                    <h4>Digital Traceability & Blockchain</h4>
+                    <div class="tech-meta">
+                        <span class="status status-mature">Mature Tech</span>
+                        <span class="status status-emerging">Emerging Business</span>
+                        <span class="confidence-badge confidence-medium-high">Medium-High Confidence</span>
+                    </div>
+                </div>
             </div>
-            <div class="tech-content">
-                <h4>Digital Traceability & Blockchain <span class="status status-emerging">Pilots</span></h4>
-                <p class="use"><strong>How it's used:</strong> Provenance tracking, real-time contamination detection, rapid recall response, sustainability verification, regulatory compliance (EU Digital Product Passport 2027).</p>
-                <p class="implication">→ Could rebuild consumer trust and enable transparent value chains—or become a compliance burden that favours large players over SMEs.</p>
+            <div class="tech-card-body">
+                <p class="tech-applications"><strong>Applications:</strong> Provenance tracking, real-time contamination detection, rapid recall response, sustainability verification, regulatory compliance (EU Digital Product Passport 2027).</p>
+                
+                <div class="tech-details">
+                    <div class="tech-detail-box evidence-box">
+                        <h5>✓ Evidence Base</h5>
+                        <ul>
+                            <li>Blockchain adoption examined in 41.7% of European food supply chain studies</li>
+                            <li>Proven at enterprise scale: Walmart, Carrefour (1,000+ products), Tesco (IBM Food Trust)</li>
+                            <li>EU Digital Product Passport mandate for 2027 is critical driver</li>
+                            <li>Consumers pay 23-41% premiums for blockchain-certified produce</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-box reality-box">
+                        <h5>⚠ Reality Check</h5>
+                        <ul>
+                            <li>Most implementations are pilot-stage, not production-scale</li>
+                            <li>Substantial barriers: interoperability, scalability, high costs, regulatory uncertainty</li>
+                            <li>Safety improvements "rarely documented"—benefits remain indirect</li>
+                            <li>SME compliance costs for 2027 EU mandate could create export disruption</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tech-implication">
+                    → Could rebuild consumer trust and enable transparent value chains—or become a compliance burden that favours large players over SMEs.
+                </div>
             </div>
         </div>
     </div>
@@ -862,6 +1320,66 @@
             <li>Consumers say they want transparency and sustainability—but they also want cheap food. When those collide, who blinks first: you or them?</li>
             <li>The UK is building sandboxes and funds. Singapore and the Netherlands are building ecosystems. Are we investing enough to lead—or just enough to follow?</li>
         </ul>
+    </div>
+
+    <h2>UK Policy Landscape</h2>
+    <p class="policy-intro">Five policy priorities that will shape whether UK food systems can translate technology potential into resilience reality.</p>
+
+    <div class="policy-grid">
+        <div class="policy-card">
+            <div class="policy-card-header">
+                <div class="policy-number">1</div>
+                <h4>Regulatory Clarity for Cultivated Meat</h4>
+            </div>
+            <p>The FSA regulatory sandbox (£1.6M, October 2024) is a positive step, but the UK needs a clear, predictable pathway for human consumption approvals. Current average processing time is <strong>2.5 years versus a 17-month statutory aim</strong>.</p>
+            <div class="policy-recommendation">
+                <strong>The gap:</strong> Regulatory uncertainty is deterring investment at a critical commercialisation stage. Four companies await human consumption approval with no clear timeline.
+            </div>
+        </div>
+
+        <div class="policy-card">
+            <div class="policy-card-header">
+                <div class="policy-number">2</div>
+                <h4>Infrastructure Finance Innovation</h4>
+            </div>
+            <p>The £200M Biomanufacturing Growth Fund addresses a critical gap, but demo/commercial facilities (€15-250M) are beyond VC capacity.</p>
+            <div class="policy-recommendation">
+                <strong>Required:</strong> Blended finance models—combining public grants, development finance, and patient capital. Consider infrastructure bank participation for facilities meeting strategic resilience criteria.
+            </div>
+        </div>
+
+        <div class="policy-card">
+            <div class="policy-card-header">
+                <div class="policy-number">3</div>
+                <h4>Robotics Adoption Acceleration</h4>
+            </div>
+            <p>UK significantly lags the EU average in robotics deployment (<strong>112 vs. 224 robots per 10,000 workers</strong>). The £500K UK Agri-Tech Centre grant for regulation/standards optimisation is insufficient.</p>
+            <div class="policy-recommendation">
+                <strong>Recommend:</strong> Expanded capital allowances, skills programmes, and regional demonstration farms to address adoption barriers beyond funding.
+            </div>
+        </div>
+
+        <div class="policy-card">
+            <div class="policy-card-header">
+                <div class="policy-number">4</div>
+                <h4>AI Leadership Consolidation</h4>
+            </div>
+            <p>AI represents the UK's strongest position. NAPIC, Imperial fermentation hub, and university programmes provide competitive infrastructure.</p>
+            <div class="policy-recommendation">
+                <strong>Focus:</strong> Proprietary datasets and industry-academic partnerships to differentiate from generic AI tools. Consider data sharing frameworks to accelerate sector-wide adoption while protecting competitive advantage.
+            </div>
+        </div>
+
+        <div class="policy-card">
+            <div class="policy-card-header">
+                <div class="policy-number">5</div>
+                <h4>Digital Product Passport Preparation</h4>
+            </div>
+            <p>Regardless of post-Brexit regulatory alignment, UK food exporters to the EU will face blockchain-level traceability requirements from <strong>2027</strong>.</p>
+            <div class="policy-recommendation">
+                <strong>Action now:</strong> Companies should begin audit-ready supply chain preparation. Government support for SME compliance infrastructure essential to prevent export disruption.
+            </div>
+        </div>
     </div>
 
     <div class="page-break"></div>
@@ -966,6 +1484,21 @@
     <footer class="footer-note">
         <p><strong>Sources:</strong> GFI Europe, AgFunder, UK FSA, DEFRA, Grand View Research, Bright Green Partners, academic literature. All claims fact-checked. Full technical briefing available.</p>
     </footer>
+    
+    <div class="author-citation">
+        <div class="citation-content">
+            <p class="citation-text">
+                <strong>Chaves, P.</strong> (2026). <em>UK Food System Resilience 2035: Technological Landscape Brief.</em> January 2026.
+            </p>
+            <p class="author-link">
+                Author: <a href="https://www.priscilachaves.com" target="_blank" rel="noopener noreferrer">Priscila Chaves</a>
+            </p>
+        </div>
+        <div class="disclaimer">
+            <p><strong>© 2026 Priscila Chaves. All rights reserved.</strong></p>
+            <p>This document and its contents are proprietary and confidential. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the author, except for brief quotations in critical reviews and certain other non-commercial uses permitted by copyright law. For permission requests, please contact the author via <a href="https://www.priscilachaves.com" target="_blank" rel="noopener noreferrer">www.priscilachaves.com</a>.</p>
+        </div>
+    </div>
 </div>
 
 </body>
